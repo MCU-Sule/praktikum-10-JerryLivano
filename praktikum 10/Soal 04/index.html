@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="Jerry Livano 2172002">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        border: 2px solid black;
+        background-color: red;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+</style>
+<body>
+    <div id="bulat"></div>
+    <script>
+        let drag = document.getElementById("bulat");
+        document.addEventListener("mousemove", DragCursor);
+        function DragCursor (a) {
+            let x = a.clientX;
+            let y = a.clientY - 15;
+            drag.style.left = x + "px"; 
+            drag.style.top = y + "px";
+        }
+    </script>
+</body>
+</html>

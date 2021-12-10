@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="Jerry Livano 2172002">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .div {
+        font-size: 30px;
+        font-weight: bolder;
+        font-family: sans-serif;
+        padding-left: 10px;
+    }
+    .jumlah {
+        background-color: orange;
+    }
+    .kurang {
+        background-color:deepskyblue;
+    }
+    .kali {
+        background-color: deeppink;
+    }
+    .bil {
+        background-color: orangered;
+    }
+    input {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        height: 20px;
+    }
+    #plus1, #min1, #kali1, #bil {
+        margin-left: 10px;
+    }
+    #hitung1, #hitung2, #hitung3, #hitung4 {
+        height: 25px;
+        width: 60px;
+        margin-left: 15px;
+        border: 2px solid rgb(43, 153, 197);
+        background-color: skyblue;
+    }
+    #random1, #random2, #random3, #random4 {
+        margin-left: 10px;
+        margin-bottom: 30px;
+        width: 80px;
+        height: 30px;
+        border: 2px solid darkgreen;
+        background-color: limegreen;
+    }
+    #jawab1, #jawab2, #jawab3, #jawab4 {
+        width: 200px;
+        float: right;
+        margin-right: 83.5%;
+        margin-top: 5px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div class="div jumlah">Penjumlahan</div>
+    <input type="text" disabled id="plus1"> + <input type="text" disabled id="plus2"> = <input type="number" name="" id="plus"><button id="hitung1">Hitung</button>
+    <br><button id="random1">Random</button><div id="jawab1"></div>
+    <div class="div kurang">Pengurangan</div>
+    <input type="text" disabled id="min1"> - <input type="text" disabled id="min2"> = <input type="number" name="" id="min"><button id="hitung2">Hitung</button>
+    <br><button id="random2">Random</button><div id="jawab2"></div>
+    <div class="div kali">Perkalian</div>
+    <input type="text" disabled id="kali1"> * <input type="text" disabled id="kali2"> = <input type="number" name="" id="kali"><button id="hitung3">Hitung</button>
+    <br><button id="random3">Random</button><div id="jawab3"></div>
+    <div class="div bil">Bilangan</div>
+    <input type="text" disabled id="bil"> = <input type="number" id="bil1">,<input type="number" id="bil2">,<input type="number" id="bil3"><button id="hitung4">Hitung</button>
+    <br><button id="random4">Random</button><div id="jawab4"></div>
+    <script>
+        let jml1, jml2, min1, min2, kali1, kali2, bil;
+        document.getElementById("random1").addEventListener("click", RandomJumlah);
+        document.getElementById("hitung1").addEventListener("click", HitungJumlah);
+        function RandomJumlah(){
+            jml1 = Math.floor(Math.random()*899)+100;
+            jml2 = Math.floor(Math.random()*899)+100;
+            document.getElementById("plus1").value = jml1;
+            document.getElementById("plus2").value = jml2;
+        }
+        function HitungJumlah (){
+            let hasil = jml1 + jml2;
+            let value = document.getElementById("plus").value;
+            if (value == hasil){
+                document.getElementById("jawab1").innerHTML = "Jawaban benar";
+            }
+            else {
+                document.getElementById("jawab1").innerHTML = "Jawaban salah";
+            }
+        }
+        document.getElementById("random2").addEventListener("click", RandomKurang);
+        document.getElementById("hitung2").addEventListener("click", HitungKurang);
+        function RandomKurang (){
+            min1 = Math.floor(Math.random()*899)+100;
+            min2 = Math.floor(Math.random()*899)+100;
+            document.getElementById("min1").value = min1;
+            document.getElementById("min2").value = min2;
+        }
+        function HitungKurang (){
+            let hasil = min1 - min2;
+            let value = document.getElementById("min").value;
+            if (value == hasil){
+                document.getElementById("jawab2").innerHTML = "Jawaban benar";
+            }
+            else {
+                document.getElementById("jawab2").innerHTML = "Jawaban salah";
+            }
+        }
+        document.getElementById("random3").addEventListener("click", RandomKali);
+        document.getElementById("hitung3").addEventListener("click", HitungKali);
+        function RandomKali (){
+            kali1 = Math.floor(Math.random()*100);
+            kali2 = Math.floor(Math.random()*100);
+            document.getElementById("kali1").value = kali1;
+            document.getElementById("kali2").value = kali2;
+        }
+        function HitungKali (){
+            let hasil = kali1 * kali2;
+            let value = document.getElementById("kali").value;
+            if (value == hasil){
+                document.getElementById("jawab3").innerHTML = "Jawaban benar";
+            }
+            else {
+                document.getElementById("jawab3").innerHTML = "Jawaban salah";
+            }
+        }
+        document.getElementById("random4").addEventListener("click", RandomBil);
+        document.getElementById("hitung4").addEventListener("click", HitungBil);
+        function RandomBil () {
+            bil = Math.floor(Math.random()*899)+100;
+            document.getElementById("bil").value = bil;
+        }
+        function HitungBil () {
+            bil;
+            let value1 = document.getElementById("bil1").value.toString();
+            let value2 = document.getElementById("bil2").value.toString();
+            let value3 = document.getElementById("bil3").value.toString();
+            let totalvalue = value1 + value2 + value3;
+            if (totalvalue == bil){
+                document.getElementById("jawab4").innerHTML = "Jawaban benar";
+            }
+            else {
+                document.getElementById("jawab4").innerHTML = "Jawaban salah";
+            }
+        }
+    </script>
+</body>
+</html>

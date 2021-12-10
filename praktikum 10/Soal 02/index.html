@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="Jerry Livano 2172002">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: sans-serif;
+    }
+    td {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        font-size: 130px;
+        text-align: center;
+    }
+    td:hover {
+        cursor: pointer;
+    }
+    table {
+        border: 1px solid black;
+    }
+    caption {
+        font-size: 40px;
+        font-weight: bold;
+        padding: 20px;
+    }
+    #turn {
+        height: 50px;
+        margin: 20px;
+        font-size: 40px;
+        text-align: center;
+    }
+    #reset {
+        width: 200px;
+        height: 50px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+<body>
+    <table align="center" cellspacing="0" cellpadding="0">
+        <caption>Tic Tac Toe</caption>
+    <script>
+        let cell = 0;
+        for (i=0; i<3; i++){
+            document.write("<tr>");
+            for (j=0; j<3; j++){
+                document.write("<td id='cell" + cell + "'></td>");
+                cell++;
+            }
+            document.write("</tr>");
+        }
+    </script>
+    </table>
+    <div id="turn"></div>
+    <button id="reset">RESTART GAME</button>
+    <script>
+        let gilir = 0;
+        let notice = document.getElementById("turn").innerHTML= "X's turn";
+        let menang = false;
+        function victory (){
+            let c1, c2, c3, c4, c5, c6, c7, c8, c9;
+            c1 = document.getElementById("cell0").innerHTML;
+            c2 = document.getElementById("cell1").innerHTML;
+            c3 = document.getElementById("cell2").innerHTML;
+            c4 = document.getElementById("cell3").innerHTML;
+            c5 = document.getElementById("cell4").innerHTML;
+            c6 = document.getElementById("cell5").innerHTML;
+            c7 = document.getElementById("cell6").innerHTML;
+            c8 = document.getElementById("cell7").innerHTML;
+            c9 = document.getElementById("cell8").innerHTML;
+            if (gilir == 1){
+                notice = document.getElementById("turn").innerHTML= "X's turn";
+                gilir = 0;
+            }
+            else {
+                notice = document.getElementById("turn").innerHTML= "O's turn";
+                gilir = 1;
+            }
+        
+            if (c1 == "X" && c2 == "X" && c3 == "X"){
+                menang = true;
+                document.getElementById("cell0").style.backgroundColor= "yellow";
+                document.getElementById("cell1").style.backgroundColor= "yellow";
+                document.getElementById("cell2").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c4 == "X" && c5 == "X" && c6 == "X"){
+                menang = true;
+                document.getElementById("cell3").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell5").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c7 == "X" && c8 == "X" && c9 == "X"){
+                menang = true;
+                document.getElementById("cell6").style.backgroundColor= "yellow";
+                document.getElementById("cell7").style.backgroundColor= "yellow";
+                document.getElementById("cell8").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c1 == "X" && c4 == "X" && c7 == "X"){
+                menang = true;
+                document.getElementById("cell0").style.backgroundColor= "yellow";
+                document.getElementById("cell3").style.backgroundColor= "yellow";
+                document.getElementById("cell6").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c2 == "X" && c5 == "X" && c8 == "X"){
+                menang = true;
+                document.getElementById("cell1").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell7").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c3 == "X" && c6 == "X" && c9 == "X"){
+                menang = true;
+                document.getElementById("cell2").style.backgroundColor= "yellow";
+                document.getElementById("cell5").style.backgroundColor= "yellow";
+                document.getElementById("cell8").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c1 == "X" && c5 == "X" && c9 == "X"){
+                menang = true;
+                document.getElementById("cell0").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell8").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c3 == "X" && c5 == "X" && c7 == "X"){
+                menang = true;
+                document.getElementById("cell2").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell6").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player X has won";
+            }
+            else if (c1 == "O" && c2 == "O" && c3 == "O"){
+                menang = true;
+                document.getElementById("cell0").style.backgroundColor= "yellow";
+                document.getElementById("cell1").style.backgroundColor= "yellow";
+                document.getElementById("cell2").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c4 == "O" && c5 == "O" && c6 == "O"){
+                menang = true;
+                document.getElementById("cell3").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell5").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c7 == "O" && c8 == "O" && c9 == "O"){
+                menang = true;
+                document.getElementById("cell6").style.backgroundColor= "yellow";
+                document.getElementById("cell7").style.backgroundColor= "yellow";
+                document.getElementById("cell8").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c1 == "O" && c4 == "O" && c7 == "O"){
+                menang = true;
+                document.getElementById("cell0").style.backgroundColor= "yellow";
+                document.getElementById("cell3").style.backgroundColor= "yellow";
+                document.getElementById("cell6").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c2 == "O" && c5 == "O" && c8 == "O"){
+                menang = true;
+                document.getElementById("cell1").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell7").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c3 == "O" && c6 == "O" && c9 == "O"){
+                menang = true;
+                document.getElementById("cell2").style.backgroundColor= "yellow";
+                document.getElementById("cell5").style.backgroundColor= "yellow";
+                document.getElementById("cell8").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c1 == "O" && c5 == "O" && c9 == "O"){
+                menang = true;
+                document.getElementById("cell0").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell8").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c3 == "O" && c5 == "O" && c7 == "O"){
+                menang = true;
+                document.getElementById("cell2").style.backgroundColor= "yellow";
+                document.getElementById("cell4").style.backgroundColor= "yellow";
+                document.getElementById("cell6").style.backgroundColor= "yellow";
+                notice = document.getElementById("turn").innerHTML= "Player O has won";
+            }
+            else if (c1 != "" && c2 != "" && c3 != "" && c4 != "" && c5 != "" && c6 != "" && c7 != "" && c8 != "" && c9 != ""){
+                notice = document.getElementById("turn").innerHTML= "Match Tie";
+            }
+        }
+        let turn = 1;
+        document.getElementById("cell0").addEventListener("click", kotak1);
+        function kotak1() {
+            c1 = document.getElementById("cell0").innerHTML;
+            if (c1 != "X" && c1 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell0").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell0").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell1").addEventListener("click", kotak2);
+        function kotak2() {
+            c2 = document.getElementById("cell1").innerHTML;
+            if (c2 != "X" && c2 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell1").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell1").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell2").addEventListener("click", kotak3);
+        function kotak3() {
+            c3 = document.getElementById("cell2").innerHTML;
+            if (c3 != "X" && c3 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell2").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell2").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell3").addEventListener("click", kotak4);
+        function kotak4() {
+            c4 = document.getElementById("cell3").innerHTML;
+            if (c4 != "X" && c4 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell3").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell3").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell4").addEventListener("click", kotak5);
+        function kotak5() {
+            c5 = document.getElementById("cell4").innerHTML;
+            if (c5 != "X" && c5 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell4").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell4").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell5").addEventListener("click", kotak6);
+        function kotak6() {
+            c6 = document.getElementById("cell5").innerHTML;
+            if (c6 != "X" && c6 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell5").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell5").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell6").addEventListener("click", kotak7);
+        function kotak7() {
+            c7 = document.getElementById("cell6").innerHTML;
+            if (c7 != "X" && c7 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell6").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell6").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell7").addEventListener("click", kotak8);
+        function kotak8() {
+            c8 = document.getElementById("cell7").innerHTML;
+            if (c8 != "X" && c8 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell7").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell7").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("cell8").addEventListener("click", kotak9);
+        function kotak9() {
+            c9 = document.getElementById("cell8").innerHTML;
+            if (c9 != "X" && c9 != "O" && menang == false){
+                if (turn == 1) {
+                    document.getElementById("cell8").innerHTML = "X";
+                    turn = 0;
+                }
+                else {
+                    document.getElementById("cell8").innerHTML = "O";
+                    turn = 1;
+                }
+                victory ();
+            }
+        }
+        document.getElementById("reset").addEventListener("click", restart);
+        function restart (){
+            gilir = 0;
+            notice = document.getElementById("turn").innerHTML= "X's turn";
+            menang = false;
+            for (k=0; k<9; k++){
+                document.getElementById("cell" + k).innerHTML= "";
+                document.getElementById("cell" + k).style.backgroundColor= "transparent";
+            }
+            turn = 1;
+        }
+    </script>
+</body>
+</html>
